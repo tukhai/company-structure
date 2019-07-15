@@ -1,33 +1,181 @@
 .App {
+  margin-bottom: 40px;
+}
+
+/*************************/
+
+input {
+  padding: 10px;
+  width: 400px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main-container {
+  width: 80%;
+  margin-left: 10%;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h4.back-to-home-page {
+  margin-left: 20px;
+  cursor: pointer;
+}
+h4.back-to-home-page a:visited {
+  color: black;
+}
+
+.package-name {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.package-result-counter {
+  margin-top: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.search-container {
+  float: left;
+  width: 80%;
 }
 
-.App-link {
-  color: #61dafb;
+.main-search {
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 10px;
+  border: 1px solid #ddd;
+  background-color: #f1f1f1;
+  /* margin-bottom: 40px; */
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
+.search-button {
+  height: 100%;
+  width: 20%;
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.auto-complete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  /* top: 100%;
+  left: 0;
+  right: 0; */
+  width: 64%;
+}
+
+.auto-complete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.auto-complete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.auto-complete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+
+/* CSS for /package-overview page */
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li div {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  cursor: pointer;
+}
+
+#myUL li div:hover:not(.header) {
+  background-color: #eee;
+}
+
+#loading {
+  /* display: inline-block; */
+  animation: rotation 2s infinite linear;
+  float: left;
+}
+
+@keyframes rotation {
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
     transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.fetching-text {
+  margin: 2px 0 0 10px;
+  float: left;
+}
+
+.loading-icon-container {
+  height: 20px;
+}
+.clear-both {
+  clear: both;
+}
+
+/* CSS for not found page */
+h1.not-found-main {
+  text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .search-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .auto-complete-items {
+    width: 80%;
+  }
+
+  .search-button {
+    width: 100%;
+    margin-top: 15px;
   }
 }
