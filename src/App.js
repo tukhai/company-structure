@@ -30,10 +30,8 @@ class App extends Component {
   }
 
   handleSelectSuggestion(suggestionName) {
-    console.log("suggestionName", suggestionName);
     this.setState({
-      searchKeywords: suggestionName,
-      // searchSuggestionPackagesData: []
+      searchKeywords: suggestionName
     });
   }
 
@@ -50,9 +48,7 @@ class App extends Component {
       localStorage.setItem("searchHistory", JSON.stringify(searchHistoryArr));
 
       var encodedName = encodeURI(this.state.searchKeywords);
-      var directedUrl = `http://api.additivasia.io/api/v1/assignment/employees/${encodedName}`;
-
-      console.log("directedUrl", directedUrl);
+      this.props.history.push(`/employee-details/${encodedName}`);
     } else {
       alert("Employee name does not exist in the data!");
     }
